@@ -22,3 +22,10 @@ list可嵌套(二维数组)
 
 tuple   不可变的list(指向不变,所以里面的list还是可变的)
 (1)表示小括号运算,返回1,要与tuple区分,=>(1,)
+
+elif 替代了 else if
+
+for item in list  去除list中的元素
+不能n++ => n+=1
+
+set需要提供一个list作为输入

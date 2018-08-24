@@ -65,3 +65,42 @@
 #(1)表示小括号运算,返回1,要与tuple区分,=>(1,)
 #print((1))
 #print((1,))
+
+""" a = input('input a number:')
+if (int(a) < 60):
+    print('不及格')
+elif (int(a) < 80):
+    print('良好')
+elif (int(a) < 90):
+    print('优秀')
+else:
+    print('666') """
+
+""" arr = ['a','b','c','d','e'];
+for item in arr:
+    print(item)
+
+print(list(range(5)))       #0-4
+sum = 0
+for item in range(101):
+    sum += item
+print(sum)
+
+n=0
+m=0
+while(n <= 100):
+    m += n
+    n += 1
+print(m) """
+
+""" dic = {'a':1,'b':2,'c':3}
+for item in dic:
+    print(item,' => ',dic[item])
+dic.pop('a')
+print(dic) """
+
+#set做交并集
+set1 = set([1,2,3,4])
+set2 = set([2,4,8,6])
+print('交集:',set1 & set2)
+print('并集:',set1 | set2)
