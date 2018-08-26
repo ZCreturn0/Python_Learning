@@ -40,3 +40,18 @@ def uncertainVarNumber(*args):
 #关键字参数,传为dict
 def keywordVar(name,age,**kw):
     print('name:',name,'age:',age,'other:',kw)
+
+#去除字符串两边空格
+def trim(string):
+    if not isinstance(string,str):
+        raise TypeError('wrong type')
+    if len(string) == 0:
+        return string
+    else:
+        start = 0
+        end = len(string)
+        while string[start:start+1] == ' ':
+            start += 1
+        while string[end-1:end] == ' ':
+            end -= 1
+        return string[start:end] 

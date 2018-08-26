@@ -159,7 +159,12 @@ print(dic) """
 # print(R[::2])
 
 #tuple切片
-T = (0,1,2,3,4,5,6)
-print(T[:3])
+#T = (0,1,2,3,4,5,6)
+#print(T[:3])
 #字符串切片
-print('adfgdfgdf'[:3])
+#print('adfgdfgdf'[:3])
+
+print(trim('  regergerg   '),'end')
+print(trim('  reger  gerg   '),'end')
+print(trim('  reger gerg'),'end')
+print(trim(''),'end')
