@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+from functions import *
+
 #name = input('input your name:')
 #print('hello',name)
 
@@ -100,7 +102,42 @@ dic.pop('a')
 print(dic) """
 
 #set做交并集
-set1 = set([1,2,3,4])
-set2 = set([2,4,8,6])
-print('交集:',set1 & set2)
-print('并集:',set1 | set2)
+# set1 = set([1,2,3,4])
+# set2 = set([2,4,8,6])
+# print('交集:',set1 & set2)
+# print('并集:',set1 | set2)
+
+#把输入的数字输出16进制
+# num = input('inmput a number to transform to hex:')
+# print(hex(int(num)))
+
+#导入外部函数
+#print(myAbs(-10))
+#数据类型不正确,会报错
+#print(myAbs('A'))
+
+#函数可返回多个值,事实是一个值(tuple)
+#print(mutiReturns(-10,20))
+
+#缺省参数
+# print(defaultVar(10,3))
+# print(defaultVar(10))
+
+#默认参数为可变对象
+# print(changebleDefaultVar())
+# print(changebleDefaultVar())
+# print(changebleDefaultVar())
+
+#默认参数为不可变对象
+# print(unchangeableDefaultVar())
+# print(unchangeableDefaultVar())
+# print(unchangeableDefaultVar())
+
+#可变参数(参数个数不确定)
+# print(uncertainVarNumber(1,2,3))
+# print(uncertainVarNumber(1,2,3,4))
+# print(uncertainVarNumber(*[2,5,9]))
+# print(uncertainVarNumber(*(6,7,9)))
+
+#关键字参数,传为dict
+keywordVar('aaa',12,city='Shenzhen')
