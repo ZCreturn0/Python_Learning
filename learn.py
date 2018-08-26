@@ -140,4 +140,26 @@ print(dic) """
 # print(uncertainVarNumber(*(6,7,9)))
 
 #关键字参数,传为dict
-keywordVar('aaa',12,city='Shenzhen')
+#keywordVar('aaa',12,city='Shenzhen')
+
+#slice
+#L[0:3] == L[:3]从0到3索引:   范围:[0,3)
+# L = [0,1,2,3,4,5,6,7]
+# print(L[0:3])
+# print(L[3:6])
+#从后取:最后一个为-1
+#print(L[-3:-1])
+
+#R = list(range(100))
+#前10个
+#print(R[:10])
+#前10个每2个取一次
+# print(R[:10:2])
+#所有每2个取一次
+# print(R[::2])
+
+#tuple切片
+T = (0,1,2,3,4,5,6)
+print(T[:3])
+#字符串切片
+print('adfgdfgdf'[:3])
