@@ -29,3 +29,27 @@ for item in list  去除list中的元素
 不能n++ => n+=1
 
 set需要提供一个list作为输入
+
+内置函数:abs()  min()  max()  int()  hex()  
+
+定义一个函数要使用def语句
+如果没有return语句，函数执行完毕后也会返回结果，只是结果为None。return None可以简写为return。
+
+from fileName import functionName
+
+isinstance:like instanceof  
+isinstance(var,type):
+isinstance(x,int)
+isinstance(x,(int,float))
+
+raise TypeError('wrong type'):抛出异常
+
+函数可返回多个值,事实是一个值(tuple),可这样赋值:(a,b,c) = (1,2,3)
+
+默认参数也是一个变量★
+默认参数必须指向不变对象
+
+可变参数:参数名前加'*',传入list等,在list前加'*'
+可变参数允许你传入0个或任意个参数，这些可变参数在函数调用时自动组装为一个tuple。而关键字参数允许你传入0个或任意个含参数名的参数，这些关键字参数在函数内部自动组装为一个dict
+
+关键字参数传入dict等,前面加'**'
