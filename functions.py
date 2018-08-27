@@ -7,8 +7,6 @@ def myAbs(x):
         raise TypeError('wrong type')
     return x if x>0 else -x     #  replace  return x > 0 ? x : -x
 
-
-
 def mutiReturns(x,y):
     return x+10,y+10
 
@@ -73,3 +71,15 @@ def fac(x):
         yield sum
         n+=1
     return 'end'
+
+#简单的高阶函数
+def absAdd(x,y,f):
+    return f(x)+f(y)
+
+#两数相加
+def add(x,y):
+    return x+y
+
+#第一个字母大写,其余小写
+def firstCapital(string):
+    return string[0].upper()+string[1:].lower()

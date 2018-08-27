@@ -2,8 +2,9 @@
 # -*- coding: utf-8 -*-
 
 from functions import *
-from collections import Iterable,Iterator
+#from collections import Iterable,Iterator
 import os
+from functools import reduce
 
 #name = input('input your name:')
 #print('hello',name)
@@ -243,11 +244,19 @@ while True:
         print('over:',e.value)
         break '''
 
-#可迭代对象
+''' #可迭代对象
 print(isinstance([],Iterable))
 print(isinstance((x for x in range(1,11)),Iterable))
 
 #迭代器
 print(isinstance([],Iterator))
 print(isinstance((x for x in range(1,11)),Iterator))
-print(isinstance(iter([]),Iterator))
+print(isinstance(iter([]),Iterator)) '''
+
+#print(absAdd(-10,5,abs))
+''' L = [1,5,-4,6,-7,4]
+print(*map(abs,L))
+print(reduce(add,L)) '''
+
+L1 = ['adam', 'LISA', 'barT']
+print(*map(firstCapital,L1))
