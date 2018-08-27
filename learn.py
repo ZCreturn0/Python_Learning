@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from functions import *
-#from collections import Iterable
+from collections import Iterable,Iterator
 import os
 
 #name = input('input your name:')
@@ -235,10 +235,19 @@ print(next(f))
 print(next(f))
 print(next(f)) '''
 
-F = fac(10)
+''' F = fac(10)
 while True:
     try:
         print('val:',next(F))
     except StopIteration as e:
         print('over:',e.value)
-        break
+        break '''
+
+#可迭代对象
+print(isinstance([],Iterable))
+print(isinstance((x for x in range(1,11)),Iterable))
+
+#迭代器
+print(isinstance([],Iterator))
+print(isinstance((x for x in range(1,11)),Iterator))
+print(isinstance(iter([]),Iterator))

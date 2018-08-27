@@ -81,3 +81,9 @@ b = t[1]
 
 如果一个函数定义中包含yield关键字，那么这个函数就不再是一个普通函数，而是一个generator
 函数是顺序执行，遇到return语句或者最后一行函数语句就返回。而变成generator的函数，在每次调用next()的时候执行，遇到yield语句返回，再次执行时从上次返回的yield语句处继续执行
+
+可以直接作用于for循环的对象统称为可迭代对象：Iterable
+可以被next()函数调用并不断返回下一个值的对象称为迭代器：
+
+Iterable变成Iterator可以使用iter()函数
+Iterator对象表示的是一个数据流
