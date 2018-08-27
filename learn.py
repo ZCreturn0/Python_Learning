@@ -260,3 +260,6 @@ print(reduce(add,L)) '''
 
 L1 = ['adam', 'LISA', 'barT']
 print(*map(firstCapital,L1))
+
+L2 = [1,3,5,6,4,7,9,8,12]
+print(*filter(isEven,L2))

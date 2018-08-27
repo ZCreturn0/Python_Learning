@@ -83,3 +83,7 @@ def add(x,y):
 #第一个字母大写,其余小写
 def firstCapital(string):
     return string[0].upper()+string[1:].lower()
+
+#判断偶数
+def isEven(n):
+    return n % 2 == 0
