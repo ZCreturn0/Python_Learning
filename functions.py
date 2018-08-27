@@ -64,3 +64,12 @@ def minAndMax(L):
         return (min(*L),max(*L))
     else:
         return None
+
+#用generator定义阶乘函数
+def fac(x):
+    sum,n = 1,1
+    while(n < x):
+        sum*=n
+        yield sum
+        n+=1
+    return 'end'

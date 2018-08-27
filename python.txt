@@ -70,3 +70,14 @@ for key,val in D.items()
 
 isinstance(aaa,Iterable)    判断是否可迭代(需导入)
 enumerate(L)    index,value
+
+生成器generator:保存算法
+
+a, b = b, a + b
+等价于
+t = (b, a + b) # t是一个tuple
+a = t[0]
+b = t[1]
+
+如果一个函数定义中包含yield关键字，那么这个函数就不再是一个普通函数，而是一个generator
+函数是顺序执行，遇到return语句或者最后一行函数语句就返回。而变成generator的函数，在每次调用next()的时候执行，遇到yield语句返回，再次执行时从上次返回的yield语句处继续执行

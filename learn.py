@@ -3,6 +3,7 @@
 
 from functions import *
 #from collections import Iterable
+import os
 
 #name = input('input your name:')
 #print('hello',name)
@@ -199,5 +200,45 @@ for index,val in enumerate(L):
     print(index,val) '''
 
 #用迭代查找一个list中最小和最大值，并返回一个tuple
-L = [5,2,6,7,9,1,4]
-print(minAndMax(L))
+''' L = [5,2,6,7,9,1,4]
+print(minAndMax(L)) '''
+
+#10以内偶数平方
+#print([x*x for x in range(1,11) if x % 2 == 0])
+#嵌套列表
+#9-9乘法表
+#print([str(m)+'*'+str(n)+'='+str(m*n) for m in range(1,10) for n in range(m,10)])
+
+''' #列出当前文件夹下所有文件
+print([d for d in os.listdir('.')])
+
+#把字符串转为小写,非字符串过滤
+L1 = ['Hello', 'World', 18, 'Apple', None]
+print([string.lower() for string in L1 if isinstance(string,str)]) '''
+
+''' G = (x for x in range(1,11))
+print(G)
+for g in G:
+    print(g) '''
+
+''' #输出fac(i)
+for i in range(1,11):
+    print(fac(i))
+
+#输出对应的值
+for i in fac(10):
+    print(i)
+
+f = fac(10)
+print(next(f))
+print(next(f))
+print(next(f))
+print(next(f)) '''
+
+F = fac(10)
+while True:
+    try:
+        print('val:',next(F))
+    except StopIteration as e:
+        print('over:',e.value)
+        break
