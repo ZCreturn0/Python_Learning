@@ -55,3 +55,12 @@ def trim(string):
         while string[end-1:end] == ' ':
             end -= 1
         return string[start:end] 
+
+#用迭代查找一个list中最小和最大值，并返回一个tuple
+def minAndMax(L):
+    if isinstance(L,list) and len(L) == 1:
+        return (L[0],L[0])
+    if isinstance(L,list) and len(L) != 0:
+        return (min(*L),max(*L))
+    else:
+        return None

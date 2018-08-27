@@ -63,3 +63,10 @@ L[0:3] == L[:3]从0到3索引:   范围:[0,3)
 从后取:最后一个为-1
 tuple切片:(0,1,2,3,4)[:3]
 字符串切片:'sdfdfgadf'[:3]
+
+for key in D
+for val in D.values()
+for key,val in D.items()
+
+isinstance(aaa,Iterable)    判断是否可迭代(需导入)
+enumerate(L)    index,value

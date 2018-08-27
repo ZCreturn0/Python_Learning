@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from functions import *
+#from collections import Iterable
 
 #name = input('input your name:')
 #print('hello',name)
@@ -164,7 +165,39 @@ print(dic) """
 #字符串切片
 #print('adfgdfgdf'[:3])
 
-print(trim('  regergerg   '),'end')
+""" print(trim('  regergerg   '),'end')
 print(trim('  reger  gerg   '),'end')
 print(trim('  reger gerg'),'end')
-print(trim(''),'end')
+print(trim(''),'end') """
+
+''' #dict遍历
+D = {'a':1,'b':2,'c':3}
+#遍历key
+print('遍历key:')
+for key in D:
+    print(key,':',D[key])
+#遍历value
+print('遍历value:')
+print(D.values())
+for val in D.values():
+    print(val)
+#遍历key-value
+print('遍历key-value:')
+print(D.items())
+for key,val in D.items():
+    print(key,'-',val) '''
+
+''' #字符串遍历
+string = 'dsgdfhgsdfg'
+for ch in string:
+    print(ch)
+#判断是否可迭代
+print(isinstance(string,Iterable)) '''
+
+''' L = ['A','B','C']
+for index,val in enumerate(L):
+    print(index,val) '''
+
+#用迭代查找一个list中最小和最大值，并返回一个tuple
+L = [5,2,6,7,9,1,4]
+print(minAndMax(L))
