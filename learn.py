@@ -258,8 +258,19 @@ print(isinstance(iter([]),Iterator)) '''
 print(*map(abs,L))
 print(reduce(add,L)) '''
 
-L1 = ['adam', 'LISA', 'barT']
+''' L1 = ['adam', 'LISA', 'barT']
 print(*map(firstCapital,L1))
 
 L2 = [1,3,5,6,4,7,9,8,12]
-print(*filter(isEven,L2))
+print(*filter(isEven,L2)) '''
+
+#按绝对值比较大小
+print(sorted([36, 5, -12, 9, -21], key=abs))
+#按绝对值比较大小反响排序
+print(sorted([36, 5, -12, 9, -21], key=abs,reverse=True))
+
+#按成绩排序
+def getScore(stu):
+    return stu[1]
+L = [('Bob', 75), ('Adam', 92), ('Bart', 66), ('Lisa', 88)]
+print(sorted(L,key=getScore))
