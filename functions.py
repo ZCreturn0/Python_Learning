@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import functools
+
 # a file providers some functions
 def myAbs(x):
     if not isinstance(x,(int,float)):
@@ -87,3 +89,12 @@ def firstCapital(string):
 #判断偶数
 def isEven(n):
     return n % 2 == 0
+
+#装饰器,打印调用的函数
+def log(func):
+    @functools.wraps(func)
+    def wrapper(*args,**kw):
+        print('----%s called begin----' % (func.__name__))
+        func(*args,**kw)
+        print('----%s called end----' % (func.__name__))
+    return wrapper
