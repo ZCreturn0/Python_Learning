@@ -102,3 +102,12 @@ filter()函数返回的是一个Iterator
 当前时间戳:datetime.datetime.now().timestamp()
 
 偏函数:可选参数传入一个固定参数,返回一个新的函数
+
+每一个包目录下面都会有一个__init__.py的文件
+__init__.py可以是空文件，也可以有Python代码
+
+任何模块代码的第一个字符串都被视为模块的文档注释
+
+sys模块有一个argv变量，用list存储了命令行的所有参数。argv至少有一个元素，因为第一个参数永远是该.py文件的名称
+
+通过'_'前缀来实现private
