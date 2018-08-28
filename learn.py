@@ -298,22 +298,31 @@ print(hello.__name__) """
 print(datetime.datetime.now().timestamp()) """
 
 #装饰器,显示func执行时间
-def logTime(func):
-    @functools.wraps(func)
-    def wrapper(*args,**kw):
-        start = datetime.datetime.now().timestamp()
-        func(*args,**kw)
-        end = datetime.datetime.now().timestamp()
-        print('%s() ran over in %f s' % (func.__name__,end-start))
-    return wrapper
+# def logTime(func):
+#     @functools.wraps(func)
+#     def wrapper(*args,**kw):
+#         start = datetime.datetime.now().timestamp()
+#         func(*args,**kw)
+#         end = datetime.datetime.now().timestamp()
+#         print('%s() ran over in %f s' % (func.__name__,end-start))
+#     return wrapper
 
-@logTime
-def addSum(n):
-    sum = 0
-    for i in range(1,n+1):
-        sum += i
-    print('sum is',sum)
+# @logTime
+# def addSum(n):
+#     sum = 0
+#     for i in range(1,n+1):
+#         sum += i
+#     print('sum is',sum)
 
-addSum(10)
-addSum(100000)
-addSum(10000000)
+# addSum(10)
+# addSum(100000)
+# addSum(10000000)
+
+#偏函数
+print(int('1011'))
+print(int('1011',base=2))
+#用偏函数生成一个专门处理二进制的函数
+int2 = functools.partial(int,base=2)
+print(int2('1011'))
+#生成的函数仍可以传缺省参数
+print(int2('1011',base=8))

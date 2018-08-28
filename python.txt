@@ -100,3 +100,5 @@ filter()函数返回的是一个Iterator
 @functools.wraps(func)保留返回值的__name__属性
 
 当前时间戳:datetime.datetime.now().timestamp()
+
+偏函数:可选参数传入一个固定参数,返回一个新的函数
