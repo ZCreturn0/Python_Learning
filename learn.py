@@ -5,6 +5,8 @@ from functions import *
 #from collections import Iterable,Iterator
 import os
 from functools import reduce
+import functools
+import datetime
 
 #name = input('input your name:')
 #print('hello',name)
@@ -264,7 +266,7 @@ print(*map(firstCapital,L1))
 L2 = [1,3,5,6,4,7,9,8,12]
 print(*filter(isEven,L2)) '''
 
-#按绝对值比较大小
+""" #按绝对值比较大小
 print(sorted([36, 5, -12, 9, -21], key=abs))
 #按绝对值比较大小反响排序
 print(sorted([36, 5, -12, 9, -21], key=abs,reverse=True))
@@ -273,4 +275,45 @@ print(sorted([36, 5, -12, 9, -21], key=abs,reverse=True))
 def getScore(stu):
     return stu[1]
 L = [('Bob', 75), ('Adam', 92), ('Bart', 66), ('Lisa', 88)]
-print(sorted(L,key=getScore))
+print(sorted(L,key=getScore)) """
+
+""" #装饰器
+def dec(text):
+    def log(func):
+        @functools.wraps(func)
+        def wrapper(*args,**kw):
+            print('%s %s()' % (text,func.__name__))
+            func(*args,**kw)
+        return wrapper
+    return log
+
+@dec('call')
+def hello(name1,name2,key="name"):
+    print('hello',name1,name2)
+
+hello('aaa','bbb',"ccc")
+print(hello.__name__) """
+
+""" #当前时间戳
+print(datetime.datetime.now().timestamp()) """
+
+#装饰器,显示func执行时间
+def logTime(func):
+    @functools.wraps(func)
+    def wrapper(*args,**kw):
+        start = datetime.datetime.now().timestamp()
+        func(*args,**kw)
+        end = datetime.datetime.now().timestamp()
+        print('%s() ran over in %f s' % (func.__name__,end-start))
+    return wrapper
+
+@logTime
+def addSum(n):
+    sum = 0
+    for i in range(1,n+1):
+        sum += i
+    print('sum is',sum)
+
+addSum(10)
+addSum(100000)
+addSum(10000000)
