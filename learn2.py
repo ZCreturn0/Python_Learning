@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-#定义学生类
+''' #定义学生类
 class Student(object):
     #类属性
     likeStatic = 'static'
@@ -44,4 +44,13 @@ d = Student('dd',69)
 print(Student.count)
 
 #print(type(a))
-#print(dir(a))
+#print(dir(a)) '''
+
+class Student(object):
+    __slots__ = ('name','age')
+
+s = Student()
+s.name = 'aaa'
+s.age = 12
+#报错
+s.score = '50'
