@@ -56,29 +56,61 @@ print(Student.count)
 # #报错
 # s.score = '50'
 
-class Stu(object):
-    __age = 12
-    #setter与getter方法同名
-    @property
-    def score(self):
-        return self.__score
+# class Stu(object):
+#     __age = 12
+#     #setter与getter方法同名
+#     @property
+#     def score(self):
+#         return self.__score
     
-    @score.setter
-    def score(self,sc):
-        if sc > 100 or sc < 0:
-            raise TypeError('out of range')
-        self.__score = sc
+#     @score.setter
+#     def score(self,sc):
+#         if sc > 100 or sc < 0:
+#             raise TypeError('out of range')
+#         self.__score = sc
 
-    #只读属性
-    @property
-    def age(self):
-        return self.__age
+#     #只读属性
+#     @property
+#     def age(self):
+#         return self.__age
 
-s1 = Stu()
-s2 = Stu()
-s1.score = 60
-print(s1.score)
+# s1 = Stu()
+# s2 = Stu()
+# s1.score = 60
+# print(s1.score)
 
-#超出范围报错
-s2.score = 120
-print(s2.score)
+# #超出范围报错
+# s2.score = 120
+# print(s2.score)
+
+# #__str__    __repr__
+# class Stu(object):
+#     @property
+#     def name(self):
+#         return self.__name
+#     @name.setter
+#     def name(self,name):
+#         self.__name = name
+#     def __str__(self):
+#         return 'name:%s' % self.__name
+#     __repr__ = __str__
+# s = Stu()
+# s.name = "aaa"
+# print(s)
+
+class CountTo100(object):
+    def __init__(self):
+        self.count = 0
+    def __iter__(self):
+        return self
+    def __next__(self):
+        if self.count > 99:
+            raise StopIteration('no more counts')
+        self.count += 1
+        return self.count
+    def __getitem__(self,n):
+        return n
+c = CountTo100()
+for i in c:
+    print(i)
+print(c[5])

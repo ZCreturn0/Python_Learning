@@ -143,3 +143,19 @@ __slots__定义的属性仅对当前类实例起作用，对继承的子类是�
 把一个getter (func) 方法变成属性，只需要加上@property就可以了
 setter => @func.setter
 只读属性:不定义setter
+
+#python允许多线程
+
+__init__     like     构造函数 
+
+__str__   like   toString
+__str__()返回用户看到的字符串，而__repr__()返回程序开发者看到的字符串
+一般会:__repr__ = __str__
+
+如果一个类想被用于for ... in循环，类似list或tuple那样，
+就必须实现一个__iter__()方法，该方法返回一个迭代对象，
+(实例对象本身是一个迭代对象)
+然后，Python的for循环就会不断调用该迭代对象的__next__()方法
+拿到循环的下一个值，直到遇到StopIteration错误时退出循环
+
+像list那样按照下标取出元素，需要实现__getitem__()方法
