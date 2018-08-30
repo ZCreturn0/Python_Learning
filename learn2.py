@@ -108,9 +108,19 @@ class CountTo100(object):
             raise StopIteration('no more counts')
         self.count += 1
         return self.count
+    #cound be more:like[0:10:2]..
     def __getitem__(self,n):
-        return n
+        if isinstance(n,int):
+            return n
+        elif isinstance(n,slice):
+            start = n.start
+            stop = n.stop
+            L = []
+            for i in range(start,stop+1):
+                L.append(i)
+            return L
 c = CountTo100()
-for i in c:
-    print(i)
+# for i in c:
+#     print(i)
 print(c[5])
+print(c[5:10])
