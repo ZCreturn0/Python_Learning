@@ -46,11 +46,39 @@ print(Student.count)
 #print(type(a))
 #print(dir(a)) '''
 
-class Student(object):
-    __slots__ = ('name','age')
+# #限制class实例能添加的属性
+# class Student(object):
+#     __slots__ = ('name','age')
 
-s = Student()
-s.name = 'aaa'
-s.age = 12
-#报错
-s.score = '50'
+# s = Student()
+# s.name = 'aaa'
+# s.age = 12
+# #报错
+# s.score = '50'
+
+class Stu(object):
+    __age = 12
+    #setter与getter方法同名
+    @property
+    def score(self):
+        return self.__score
+    
+    @score.setter
+    def score(self,sc):
+        if sc > 100 or sc < 0:
+            raise TypeError('out of range')
+        self.__score = sc
+
+    #只读属性
+    @property
+    def age(self):
+        return self.__age
+
+s1 = Stu()
+s2 = Stu()
+s1.score = 60
+print(s1.score)
+
+#超出范围报错
+s2.score = 120
+print(s2.score)
