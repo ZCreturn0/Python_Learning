@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+from enum import Enum,unique
+
 ''' #定义学生类
 class Student(object):
     #类属性
@@ -98,37 +100,60 @@ print(Student.count)
 # s.name = "aaa"
 # print(s)
 
-class CountTo100(object):
-    def __init__(self):
-        self.count = 0
-    def __iter__(self):
-        return self
-    def __next__(self):
-        if self.count > 99:
-            raise StopIteration('no more counts')
-        self.count += 1
-        return self.count
-    #cound be more:like[0:10:2]..
-    def __getitem__(self,n):
-        if isinstance(n,int):
-            return n
-        elif isinstance(n,slice):
-            start = n.start
-            stop = n.stop
-            L = []
-            for i in range(start,stop+1):
-                L.append(i)
-            return L
-    #只有在没有某个属性时才会调用这个函数
-    def __getattr__(self,attr):
-        return "no such attr:%s" % attr
-    def __call__(self):
-        print("__call__() called")
-c = CountTo100()
-# for i in c:
-#     print(i)
-print(c[5])
-print(c[5:10])
-print(c.count)
-print(c.score)
-c()
+#定制类,类属性
+# class CountTo100(object):
+#     def __init__(self):
+#         self.count = 0
+#     def __iter__(self):
+#         return self
+#     def __next__(self):
+#         if self.count > 99:
+#             raise StopIteration('no more counts')
+#         self.count += 1
+#         return self.count
+#     #cound be more:like[0:10:2]..
+#     def __getitem__(self,n):
+#         if isinstance(n,int):
+#             return n
+#         elif isinstance(n,slice):
+#             start = n.start
+#             stop = n.stop
+#             L = []
+#             for i in range(start,stop+1):
+#                 L.append(i)
+#             return L
+#     #只有在没有某个属性时才会调用这个函数
+#     def __getattr__(self,attr):
+#         return "no such attr:%s" % attr
+#     def __call__(self):
+#         print("__call__() called")
+# c = CountTo100()
+# # for i in c:
+# #     print(i)
+# print(c[5])
+# print(c[5:10])
+# print(c.count)
+# print(c.score)
+# c()
+
+# Month = Enum('Month',('Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'))
+# #value默认从1开始
+# for name,member in Month.__members__.items():
+#     print(name)             #Jan
+#     print(member)           #Month.Jan
+#     print(member.value)     #1
+
+#继承Enum,@unique保证不重复,需import
+@unique
+class Week(Enum):
+    Sun = 0
+    Mon = 1
+    Tus = 2
+    Wen = 3
+    Thu = 4
+    Fri = 5
+    Sat = 6
+print(Week.Sun)                 #Week.Sun
+print(Week['Sun'])              #Week.Sun
+print(Week(0))                  #Week.Sun
+print(Week.Sun.value)           #0
