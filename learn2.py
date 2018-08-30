@@ -119,8 +119,16 @@ class CountTo100(object):
             for i in range(start,stop+1):
                 L.append(i)
             return L
+    #只有在没有某个属性时才会调用这个函数
+    def __getattr__(self,attr):
+        return "no such attr:%s" % attr
+    def __call__(self):
+        print("__call__() called")
 c = CountTo100()
 # for i in c:
 #     print(i)
 print(c[5])
 print(c[5:10])
+print(c.count)
+print(c.score)
+c()
