@@ -211,3 +211,18 @@ q结束调试
 
 加断点:
 import pdb，然后，在可能出错的地方放一个pdb.set_trace()
+
+编写单元测试时，需要编写一个测试类，从unittest.TestCase继承
+以test开头的方法就是测试方法，不以test开头的方法不被认为是测试方法，测试的时候不会被执行
+对每一类测试都需要编写一个test_xxx()方法
+assertEqual(unknownVal,exceptedVal)
+with self.assertRaises(ValueError)
+
+if __name__ == '__main__':
+    unittest.main()
+在特定环境执行测试代码
+
+$ python -m unittest mydict_test
+
+可以在单元测试中编写两个特殊的setUp()和tearDown()方法。这两个方法会分别在每调用一个测试方法的前后分别被执行。
+
