@@ -197,3 +197,17 @@ logging.exception(e)        #打印
 
 raise语句如果不带参数，就会把当前错误原样抛出
 
+assert n != 0, 'n is zero!':
+assert的意思是，表达式n != 0应该是True，否则，根据程序运行的逻辑，后面的代码肯定会出错。
+如果断言失败，assert语句本身就会抛出AssertionError
+
+$ python -O err.py  #关闭assert
+
+$python -m pdb learn3.py进入pdb模式:
+l查看代码
+n执行下一行代码
+p 变量名来查看变量
+q结束调试
+
+加断点:
+import pdb，然后，在可能出错的地方放一个pdb.set_trace()
