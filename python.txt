@@ -179,3 +179,21 @@ class的名称；
 class的方法名称与函数绑定(dict)
 
 metaclass允许你创建类或者修改类。换句话说，你可以把类看成是metaclass创建出来的“实例”
+
+try:
+    ....
+except ErrorType as e:
+    ...
+else:
+    ...
+finally:
+    ...
+
+所有的错误类型都继承自BaseException
+ValueError  ZeroDivisionError   UnicodeError
+UnicodeError是ValueError的子类
+
+logging.exception(e)        #打印
+
+raise语句如果不带参数，就会把当前错误原样抛出
+
