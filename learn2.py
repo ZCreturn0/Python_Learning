@@ -143,17 +143,26 @@ print(Student.count)
 #     print(member)           #Month.Jan
 #     print(member.value)     #1
 
-#继承Enum,@unique保证不重复,需import
-@unique
-class Week(Enum):
-    Sun = 0
-    Mon = 1
-    Tus = 2
-    Wen = 3
-    Thu = 4
-    Fri = 5
-    Sat = 6
-print(Week.Sun)                 #Week.Sun
-print(Week['Sun'])              #Week.Sun
-print(Week(0))                  #Week.Sun
-print(Week.Sun.value)           #0
+# #继承Enum,@unique保证不重复,需import
+# @unique
+# class Week(Enum):
+#     Sun = 0
+#     Mon = 1
+#     Tus = 2
+#     Wen = 3
+#     Thu = 4
+#     Fri = 5
+#     Sat = 6
+# print(Week.Sun)                 #Week.Sun
+# print(Week['Sun'])              #Week.Sun
+# print(Week(0))                  #Week.Sun
+# print(Week.Sun.value)           #0
+
+#用type()创建对象
+def func(self,str):
+    print(str)
+AAA = type('Hello',(object,),dict(classFunc = func))
+hello = AAA()
+#wrong
+#hello = Hello()
+hello.classFunc('666')
