@@ -3,6 +3,7 @@
 
 import logging
 import pdb
+from io import StringIO
 #debug，info，warning，error
 logging.basicConfig(level=logging.INFO)
 
@@ -36,9 +37,23 @@ logging.basicConfig(level=logging.INFO)
 #     l = f.readlines()
 #     print(l)
 
-with open('write.txt','w',encoding='utf-8') as f:
-    f.write('aaa')
-    f.close()
-with open('write.txt','a',encoding='utf-8') as F:
-    F.write('bbb')
-    F.close()
+# with open('write.txt','w',encoding='utf-8') as f:
+#     f.write('aaa')
+#     f.close()
+# with open('write.txt','a',encoding='utf-8') as F:
+#     F.write('bbb')
+#     F.close()
+
+#StringIO
+s = StringIO()
+s.write('aaa')
+s.write('bbb')
+s.write('ccc')
+print(s.getvalue())
+
+S = StringIO(s.getvalue())
+while True:
+    ss = S.readline()
+    if ss == '':
+        break
+    print(ss)
