@@ -242,3 +242,28 @@ f = open('/Users/michael/gbk.txt', 'r', encoding='gbk', errors='ignore')
 忘记调用close()的后果是数据可能只写了一部分到磁盘，剩下的丢失了
 
 传入'a'以追加（append）模式写入
+
+os.name 如果是posix，说明系统是Linux、Unix或Mac OS X，如果是nt，就是Windows系统。
+要获取详细的系统信息，可以调用os.uname()函数
+uname()函数在Windows上不提供
+在操作系统中定义的环境变量，全部保存在os.environ这个变量中
+要获取某个环境变量的值，可以调用os.environ.get('key')
+
+查看当前目录的绝对路径:os.path.abspath('.')
+1.创建路径:
+os.path.join('/Users/michael', 'testdir')
+2.创建目录:
+os.mkdir('xxxx')
+字符串拼接路径,分隔符在不同系统不一样
+
+通过os.path.split()函数，这样可以把一个路径拆分为两部分，
+后一部分总是最后级别的目录或文件名
+
+os.path.splitext()可以直接让你得到文件扩展名:
+os.path.splitext('xxx')[0]  文件名
+os.path.splitext('xxx')[1]  扩展名
+
+os.rename('test.txt', 'test.py')
+os.remove('test.py')
+os.path.isdir(x)
+os.listdir(path)

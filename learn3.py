@@ -4,6 +4,7 @@
 import logging
 import pdb
 from io import StringIO,BytesIO
+import os
 #debug，info，warning，error
 logging.basicConfig(level=logging.INFO)
 
@@ -59,9 +60,34 @@ logging.basicConfig(level=logging.INFO)
 #     print(ss)
 
 #ByteIO
-b = BytesIO()
-b.write('666'.encode('utf-8'))
-print(b.getvalue())
+# b = BytesIO()
+# b.write('666'.encode('utf-8'))
+# print(b.getvalue())
 
-B = BytesIO(b.getvalue())
-print(B.read())
+# B = BytesIO(b.getvalue())
+# print(B.read())
+
+#查看系统:
+#print(os.name)
+#uname()函数在Windows上不提供
+#print(os.uname())
+#print(os.environ)
+# print(os.environ.get('PATH'))
+
+#查看当前目录的绝对路径:
+#print(os.path.abspath('.'))
+
+# #在某个目录下创建一个新目录:
+# #1.创建路径
+# path = os.path.join(os.path.abspath('.'),'newDir')
+# #2创建目录
+# os.mkdir(path)
+
+# #删除目录:
+# os.rmdir(path)
+
+print([x for x in os.listdir('.')])
+#列出当前目录下所有文件夹:
+print([x for x in os.listdir('.') if os.path.isdir(x)])
+#列出当前目录下所有扩展名为'.py'的文件
+print([x for x in os.listdir('.') if os.path.isfile(x) and os.path.splitext(x)[1] == '.py'])
