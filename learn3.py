@@ -15,7 +15,30 @@ logging.basicConfig(level=logging.INFO)
 # logging.info('---calc:---')
 # logging.error(10/0)
 
-s= '0'
-n = int(s)
-pdb.set_trace()
-print(10/n)
+# s= '0'
+# n = int(s)
+# pdb.set_trace()
+# print(10/n)
+
+#读文件
+# try:
+#     f = open('text.txt','r')
+#     print(f.read())
+# except IOError as e:
+#     print(e)
+# finally:
+#     f.close()
+
+#另一种读文件方法
+# with open('text.txt','r') as f:
+# #    print(f.read())
+#     print('-------------')
+#     l = f.readlines()
+#     print(l)
+
+with open('write.txt','w',encoding='utf-8') as f:
+    f.write('aaa')
+    f.close()
+with open('write.txt','a',encoding='utf-8') as F:
+    F.write('bbb')
+    F.close()
