@@ -5,6 +5,7 @@ import logging
 import pdb
 from io import StringIO,BytesIO
 import os
+import pickle
 #debug，info，warning，error
 logging.basicConfig(level=logging.INFO)
 
@@ -86,8 +87,21 @@ logging.basicConfig(level=logging.INFO)
 # #删除目录:
 # os.rmdir(path)
 
-print([x for x in os.listdir('.')])
-#列出当前目录下所有文件夹:
-print([x for x in os.listdir('.') if os.path.isdir(x)])
-#列出当前目录下所有扩展名为'.py'的文件
-print([x for x in os.listdir('.') if os.path.isfile(x) and os.path.splitext(x)[1] == '.py'])
+# print([x for x in os.listdir('.')])
+# #列出当前目录下所有文件夹:
+# print([x for x in os.listdir('.') if os.path.isdir(x)])
+# #列出当前目录下所有扩展名为'.py'的文件
+# print([x for x in os.listdir('.') if os.path.isfile(x) and os.path.splitext(x)[1] == '.py'])
+
+# d = dict(aa='aa',bb='bb',cc='cc')
+# D = pickle.dumps(d)
+# print(D)
+
+# f = open('pickle.txt','wb')
+# pickle.dump(D,f)
+# f.close()
+
+F = open('pickle.txt','rb')
+l = pickle.load(F)
+F.close()
+print(pickle.loads(l))
