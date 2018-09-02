@@ -6,6 +6,7 @@ import pdb
 from io import StringIO,BytesIO
 import os
 import pickle
+import json
 #debug，info，warning，error
 logging.basicConfig(level=logging.INFO)
 
@@ -104,4 +105,11 @@ logging.basicConfig(level=logging.INFO)
 F = open('pickle.txt','rb')
 l = pickle.load(F)
 F.close()
-print(pickle.loads(l))
+d = pickle.loads(l)
+print(d)
+#dict转为json对象
+j = json.dumps(d)
+print(d)
+#json对象转为dict
+p = json.loads(j)
+print(p)

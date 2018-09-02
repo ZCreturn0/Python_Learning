@@ -273,3 +273,6 @@ os.listdir(path)
 
 pickle.load(F)      #序列化对象
 pickle.loads(B)     #反序列化
+
+json.dumps()方法返回一个str，内容就是标准的JSON
+
