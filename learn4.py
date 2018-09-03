@@ -95,27 +95,44 @@ import subprocess,threading
 # #结果不一定为0
 # print(sum)
 
-#加锁改进版
-sum = 0
-#获得锁
-lock = threading.Lock()
-def change(n):
-    global sum
-    sum += n
-    sum -= n
+# #加锁改进版
+# sum = 0
+# #获得锁
+# lock = threading.Lock()
+# def change(n):
+#     global sum
+#     sum += n
+#     sum -= n
 
-def loop(n):
-    for i in range(1000000):
-        lock.acquire()
-        try:
-            change(n)
-        finally:
-            lock.release()
+# def loop(n):
+#     for i in range(1000000):
+#         lock.acquire()
+#         try:
+#             change(n)
+#         finally:
+#             lock.release()
 
-t1 = threading.Thread(target=loop,args=(5,))
-t2 = threading.Thread(target=loop,args=(8,))
+# t1 = threading.Thread(target=loop,args=(5,))
+# t2 = threading.Thread(target=loop,args=(8,))
+# t1.start()
+# t2.start()
+# t1.join()
+# t2.join()
+# print(sum)
+
+local = threading.local()
+
+def process_name():
+    name = local.name
+    print('%s >>> %s' % (threading.current_thread().name,name))
+
+def process_thread(name):
+    local.name = name
+    process_name()
+
+t1 = threading.Thread(target=process_thread,args=("aa",),name="A_Thread")
+t2 = threading.Thread(target=process_thread,args=("bb",),name="B_Thread")
 t1.start()
 t2.start()
 t1.join()
 t2.join()
-print(sum)
