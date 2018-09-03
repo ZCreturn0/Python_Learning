@@ -61,17 +61,61 @@ import subprocess,threading
 #     #fw结束,同时读完,强制结束fr
 #     fr.terminate()
 
-def loop():
-    print('thread %s is running...' % threading.current_thread().name)
-    n = 0
-    while n < 5:
-        print('thread %s >>> %s' % (threading.current_thread().name,n))
-        time.sleep(1)
-        n += 1
-    print('thread %s ended...' % threading.current_thread().name)
+# def loop():
+#     print('thread %s is running...' % threading.current_thread().name)
+#     n = 0
+#     while n < 5:
+#         print('thread %s >>> %s' % (threading.current_thread().name,n))
+#         time.sleep(1)
+#         n += 1
+#     print('thread %s ended...' % threading.current_thread().name)
 
-print('thread %s is running...' % threading.current_thread().name)
-t = threading.Thread(target=loop,name='loopThread')
-t.start()
-t.join()
-print('thread %s ended...' % threading.current_thread().name)
+# print('thread %s is running...' % threading.current_thread().name)
+# t = threading.Thread(target=loop,name='loopThread')
+# t.start()
+# t.join()
+# print('thread %s ended...' % threading.current_thread().name)
+
+# sum = 0
+# def change(n):
+#     global sum
+#     sum += n
+#     sum -= n
+
+# def loop(n):
+#     for i in range(1000000):
+#         change(n)
+
+# t1 = threading.Thread(target=loop,args=(5,))
+# t2 = threading.Thread(target=loop,args=(8,))
+# t1.start()
+# t2.start()
+# t1.join()
+# t2.join()
+# #结果不一定为0
+# print(sum)
+
+#加锁改进版
+sum = 0
+#获得锁
+lock = threading.Lock()
+def change(n):
+    global sum
+    sum += n
+    sum -= n
+
+def loop(n):
+    for i in range(1000000):
+        lock.acquire()
+        try:
+            change(n)
+        finally:
+            lock.release()
+
+t1 = threading.Thread(target=loop,args=(5,))
+t2 = threading.Thread(target=loop,args=(8,))
+t1.start()
+t2.start()
+t1.join()
+t2.join()
+print(sum)
