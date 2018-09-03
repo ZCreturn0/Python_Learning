@@ -1,6 +1,6 @@
 from multiprocessing import Process,Pool,Queue
 import os,time,random
-import subprocess
+import subprocess,threading
 
 # def child_func(arg):
 #     print('arg:%s   pid:%s' % (arg,os.getpid()))
@@ -38,25 +38,40 @@ import subprocess
 # r = subprocess.call(['ping','www.python.org'])
 # print('return code:',r)
 
-def write(q):
-    print('%s running writing...' % os.getpid())
-    for i in ['A','B','C']:
-        print('write %s...' % i)
-        q.put(i)
-        time.sleep(random.random())
-def read(q):
-    print('%s running reading...' % os.getpid())
-    while True:
-        c = q.get(True)
-        print('read %s...' % c)
+# def write(q):
+#     print('%s running writing...' % os.getpid())
+#     for i in ['A','B','C']:
+#         print('write %s...' % i)
+#         q.put(i)
+#         time.sleep(random.random())
+# def read(q):
+#     print('%s running reading...' % os.getpid())
+#     while True:
+#         c = q.get(True)
+#         print('read %s...' % c)
 
-if __name__ == '__main__':
-    q = Queue()
-    fw = Process(target=write,args=(q,))
-    fr = Process(target=read,args=(q,))
-    fw.start()
-    fr.start()
-    #等待fw结束
-    fw.join()
-    #fw结束,同时读完,强制结束fr
-    fr.terminate()
+# if __name__ == '__main__':
+#     q = Queue()
+#     fw = Process(target=write,args=(q,))
+#     fr = Process(target=read,args=(q,))
+#     fw.start()
+#     fr.start()
+#     #等待fw结束
+#     fw.join()
+#     #fw结束,同时读完,强制结束fr
+#     fr.terminate()
+
+def loop():
+    print('thread %s is running...' % threading.current_thread().name)
+    n = 0
+    while n < 5:
+        print('thread %s >>> %s' % (threading.current_thread().name,n))
+        time.sleep(1)
+        n += 1
+    print('thread %s ended...' % threading.current_thread().name)
+
+print('thread %s is running...' % threading.current_thread().name)
+t = threading.Thread(target=loop,name='loopThread')
+t.start()
+t.join()
+print('thread %s ended...' % threading.current_thread().name)
