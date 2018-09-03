@@ -1,5 +1,6 @@
-from multiprocessing import Process,Pool
+from multiprocessing import Process,Pool,Queue
 import os,time,random
+import subprocess
 
 # def child_func(arg):
 #     print('arg:%s   pid:%s' % (arg,os.getpid()))
@@ -33,5 +34,29 @@ import os,time,random
 #     p.join()
 #     print('now,over')
 
+# print('ping www.python.org:')
+# r = subprocess.call(['ping','www.python.org'])
+# print('return code:',r)
 
+def write(q):
+    print('%s running writing...' % os.getpid())
+    for i in ['A','B','C']:
+        print('write %s...' % i)
+        q.put(i)
+        time.sleep(random.random())
+def read(q):
+    print('%s running reading...' % os.getpid())
+    while True:
+        c = q.get(True)
+        print('read %s...' % c)
 
+if __name__ == '__main__':
+    q = Queue()
+    fw = Process(target=write,args=(q,))
+    fr = Process(target=read,args=(q,))
+    fw.start()
+    fr.start()
+    #等待fw结束
+    fw.join()
+    #fw结束,同时读完,强制结束fr
+    fr.terminate()
