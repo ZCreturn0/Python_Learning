@@ -29,3 +29,12 @@ m.groups()              #  (x,y)
 正则匹配默认是贪婪匹配，也就是匹配尽可能多的字符
 加个?就可以让\d+采用非贪婪匹配:
 ^(\d+?)(0*)$
+
+datetime.now()返回当前日期和时间，其类型是datetime。
+
+把一个datetime类型转换为timestamp只需要简单调用timestamp()方法
+
+要把timestamp转换为datetime，使用datetime提供的fromtimestamp()方法
+
+把str=>datetime通过datetime.strptime()实现
+datetime => str   strftime()实现
