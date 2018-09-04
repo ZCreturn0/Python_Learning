@@ -5,6 +5,7 @@ import re
 #从datetime模块带入datetime类
 from datetime import datetime,timedelta
 from collections import namedtuple,deque,defaultdict,OrderedDict,Counter
+import base64
 
 
 # if re.match(r'^\d{4}-\d{7}$','0797-2660012'):
@@ -85,8 +86,11 @@ from collections import namedtuple,deque,defaultdict,OrderedDict,Counter
 # od['d'] = 4
 # print(od)
 
-c = Counter()
-string = 'dafgadfgsdfgsdfgfdgasaseerttyuty'
-for ch in string:
-    c[ch] += 1      #c['d']  c['a']  ....
-print(c)
+# c = Counter()
+# string = 'dafgadfgsdfgsdfgfdgasaseerttyuty'
+# for ch in string:
+#     c[ch] += 1      #c['d']  c['a']  ....
+# print(c)
+
+print(base64.b64encode('撒旦法'.encode('utf-8')))
+print(base64.urlsafe_b64encode('撒旦法'.encode('utf-8')))

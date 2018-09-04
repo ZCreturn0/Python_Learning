@@ -48,3 +48,8 @@ deque除了实现list的append()和pop()外，还支持appendleft()和popleft()�
 如果要保持Key的顺序，可以用OrderedDict(按添加顺序排序)
 
 Counter是一个简单的计数器
+
+由于标准的Base64编码后可能出现字符+和/，
+在URL中就不能直接作为参数，
+所以又有一种"url safe"的base64编码，
+其实就是把字符+和/分别变成-和_
