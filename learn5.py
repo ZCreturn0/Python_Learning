@@ -4,6 +4,7 @@
 import re
 #从datetime模块带入datetime类
 from datetime import datetime,timedelta
+from collections import namedtuple,deque,defaultdict,OrderedDict,Counter
 
 
 # if re.match(r'^\d{4}-\d{7}$','0797-2660012'):
@@ -53,6 +54,39 @@ from datetime import datetime,timedelta
 # #时间转str
 # print(datetime.strftime(datetime.now(),'%Y-%m-%d %H:%M:%S'))
 
-now = datetime.now()
-print(now)
-print(now+timedelta(hours=10))
+# now = datetime.now()
+# print(now)
+# print(now+timedelta(hours=10))
+
+# p = namedtuple('Point',['x','y'])
+# p.x = 1
+# p.y = 2
+# print(p)
+
+# d = deque(['a','b','c'])
+# d.append('d')
+# d.appendleft('y')
+# print(d)
+# d.popleft()
+# print(d)
+
+# #key不存在返回默认
+# d = defaultdict(lambda:'N/A')
+# d['x'] = 1
+# d['y'] = 2
+# print(d['x'])
+# print(d['y'])
+# print(d['z'])
+
+# od = OrderedDict([('a',1),('b',2),('c',3)])
+# print(od)
+# #按添加顺序排序
+# od['f'] = 6
+# od['d'] = 4
+# print(od)
+
+c = Counter()
+string = 'dafgadfgsdfgsdfgfdgasaseerttyuty'
+for ch in string:
+    c[ch] += 1      #c['d']  c['a']  ....
+print(c)
