@@ -57,3 +57,5 @@ Counter是一个简单的计数器
 md5加密,一个32位的16进制
 sha1加密,一个40位的16进制
 
+使用hmac和普通hash算法非常类似。hmac输出的长度和原始哈希算法的长度一致。
+需要注意传入的key和message都是bytes类型，str类型需要首先编码为bytes
