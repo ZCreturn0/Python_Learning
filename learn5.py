@@ -3,11 +3,13 @@
 
 import re
 #从datetime模块带入datetime类
+import time
 from datetime import datetime,timedelta
 from collections import namedtuple,deque,defaultdict,OrderedDict,Counter
 import base64
 import hashlib
 import hmac
+import itertools
 
 # if re.match(r'^\d{4}-\d{7}$','0797-2660012'):
 #     print('true')
@@ -108,9 +110,36 @@ import hmac
 # sha1.update('bbb'.encode('utf-8'))
 # print(sha1.hexdigest())
 
-#私钥
-key = b'zc'
-#明文
-msg = b'a message'
-h = hmac.new(key,msg,digestmod='md5')
-print(h.hexdigest())
+# #私钥
+# key = b'zc'
+# #明文
+# msg = b'a message'
+# h = hmac.new(key,msg,digestmod='md5')
+# print(h.hexdigest())
+
+# #从10开始迭代
+# n = itertools.count(10)
+# for i in n:
+#     print(i)
+#     time.sleep(0.01)
+
+# c = itertools.cycle('ABCDEF')
+# for i in c:
+#     print(i)
+#     time.sleep(0.1)
+
+# r = itertools.repeat('ABC',3)
+# for i in r:
+#     print(i)
+
+# n = itertools.count(1)
+# ns = itertools.takewhile(lambda x:x<=10,n)
+# for i in ns:
+#     print(i)
+
+# for i in itertools.chain([1,2,3],(2,6,8)):
+#     print(i)
+
+#必须是相邻的
+for key,group in itertools.groupby([1,-6,6,3,-2,-6,-3],lambda x:abs(x)):
+    print(key,list(group))
