@@ -6,7 +6,7 @@ import re
 from datetime import datetime,timedelta
 from collections import namedtuple,deque,defaultdict,OrderedDict,Counter
 import base64
-
+import hashlib
 
 # if re.match(r'^\d{4}-\d{7}$','0797-2660012'):
 #     print('true')
@@ -92,5 +92,17 @@ import base64
 #     c[ch] += 1      #c['d']  c['a']  ....
 # print(c)
 
-print(base64.b64encode('撒旦法'.encode('utf-8')))
-print(base64.urlsafe_b64encode('撒旦法'.encode('utf-8')))
+# print(base64.b64encode('撒旦法'.encode('utf-8')))
+# print(base64.urlsafe_b64encode('撒旦法'.encode('utf-8')))
+
+#md5加密,一个32位的16进制
+md5 = hashlib.md5()
+md5.update('asd'.encode('utf-8'))
+md5.update('afe'.encode('utf-8'))
+print(md5.hexdigest())
+
+#sha1加密,一个40位的16进制
+sha1 = hashlib.sha1()
+sha1.update('aaa'.encode('utf-8'))
+sha1.update('bbb'.encode('utf-8'))
+print(sha1.hexdigest())
