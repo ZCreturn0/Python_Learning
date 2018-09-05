@@ -10,7 +10,7 @@ import base64
 import hashlib
 import hmac
 from contextlib import contextmanager
-
+from urllib import request,parse
 # if re.match(r'^\d{4}-\d{7}$','0797-2660012'):
 #     print('true')
 # else:
@@ -166,10 +166,44 @@ from contextlib import contextmanager
 # with create_query('666') as q:
 #     q.query()
 
-@contextmanager
-def htmlTemplate(tag):
-    print('<%s>' % tag)
-    yield
-    print('</%s>' % tag)
-with htmlTemplate('h1'):
-    print('content')
+# @contextmanager
+# def htmlTemplate(tag):
+#     print('<%s>' % tag)
+#     yield
+#     print('</%s>' % tag)
+# with htmlTemplate('h1'):
+#     print('content')
+
+# with request.urlopen('https://api.douban.com/v2/book/2129650') as f:
+#     print('Status:',f.status,f.reason)
+#     for k,v in f.getheaders():
+#         print('%s:%s' % (k,v))
+#     data = f.read()
+#     print('Data:')
+#     print(data.decode('utf-8'))
+
+# req = request.Request('http://www.douban.com/')
+# req.add_header('User-Agent','Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1')
+# with request.urlopen(req) as f:
+#     print('Status:',f.status,f.reason)
+#     for k,v in f.getheaders():
+#         print('%s:%s',(k,v))
+#     print(f.read().decode('utf-8'))
+
+phone = input('your phone:')
+password = input('your password:')
+login_data = parse.urlencode([
+    ('username',phone),
+    ('password',password),
+    ('entry', 'mweibo'),
+    ('client_id', ''),
+    ('savestate', '1'),
+    ('ec', ''),
+    ('pagerefer', 'https://passport.weibo.cn/signin/welcome?entry=mweibo&r=http%3A%2F%2Fm.weibo.cn%2F')
+])
+req = request.Request('https://passport.weibo.cn/sso/login')
+req.add_header('Origin','https://weibo.com')
+req.add_header('Referer','https://weibo.com/')
+req.add_header('User-Agent','Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36')
+with request.urlopen(req,data=login_data.encode('utf-8')) as r:
+    print(r.read().decode('utf-8'))
