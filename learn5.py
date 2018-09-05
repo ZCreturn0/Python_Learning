@@ -9,7 +9,7 @@ from collections import namedtuple,deque,defaultdict,OrderedDict,Counter
 import base64
 import hashlib
 import hmac
-import itertools
+from contextlib import contextmanager
 
 # if re.match(r'^\d{4}-\d{7}$','0797-2660012'):
 #     print('true')
@@ -140,6 +140,36 @@ import itertools
 # for i in itertools.chain([1,2,3],(2,6,8)):
 #     print(i)
 
-#必须是相邻的
-for key,group in itertools.groupby([1,-6,6,3,-2,-6,-3],lambda x:abs(x)):
-    print(key,list(group))
+# #必须是相邻的
+# for key,group in itertools.groupby([1,-6,6,3,-2,-6,-3],lambda x:abs(x)):
+#     print(key,list(group))
+
+# class Query(object):
+#     def __init__(self,string):
+#         self.string = string
+#     # def __enter__(self):
+#     #     print('-----enter-----')
+#     #     return self
+#     # def __exit__(self, exc_type, exc_value, traceback):
+#     #     print('-----exit-----')
+#     def query(self):
+#         print(self.string)
+# # with Query('666') as q:
+# #     q.query()
+
+# @contextmanager
+# def create_query(string):
+#     print('-----enter-----')
+#     q = Query(string)
+#     yield q
+#     print('-----exit-----')
+# with create_query('666') as q:
+#     q.query()
+
+@contextmanager
+def htmlTemplate(tag):
+    print('<%s>' % tag)
+    yield
+    print('</%s>' % tag)
+with htmlTemplate('h1'):
+    print('content')
