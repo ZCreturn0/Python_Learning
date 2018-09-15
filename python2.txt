@@ -89,3 +89,5 @@ r.url   r.encoding     r.content(byte)
 
 在读取文件时，注意务必使用'rb'即二进制模式读取，这样获取的bytes长度才是文件的长度
 
+把post()方法替换为put()，delete()等，就可以以PUT或DELETE方式请求资源
+
