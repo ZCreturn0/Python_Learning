@@ -80,3 +80,12 @@ Image.new(mode,size,color)
 draw.text()：文字的绘制，第一个参数指定绘制的起始点（文本的左上角所在位置），
 第二个参数指定文本内容，第三个参数指定文本的颜色，
 第四个参数指定字体（通过ImageFont类来定义）。
+
+get请求:
+requests.get('https://github.com/ZCreturn0')
+get传参:
+r = requests.get('https://www.douban.com/search',params={'q':'python','cat':'101'})
+r.url   r.encoding     r.content(byte)
+
+在读取文件时，注意务必使用'rb'即二进制模式读取，这样获取的bytes长度才是文件的长度
+
