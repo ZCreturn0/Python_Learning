@@ -95,3 +95,13 @@ r.url   r.encoding     r.content(byte)
 收邮件时，MUA和MDA使用的协议有两种：POP：Post Office Protocol，目前版本是3，俗称POP3；
 IMAP：Internet Message Access Protocol，目前版本是4，优点是不但能取邮件，还可以直接操作MDA上存储的邮件，比如从收件箱移到垃圾箱，等等。
 
+create_engine()用来初始化数据库连接。SQLAlchemy用一个字符串表示连接信息：
+'数据库类型+数据库驱动名称://用户名:口令@机器地址:端口号/数据库名'
+
+一对多:
+User:
+books = relationship('Book')
+
+“多”的一方的book表是通过外键关联到user表的:
+Book:
+user_id = Column(String(20), ForeignKey('user.id'))
